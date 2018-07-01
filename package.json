@@ -1,0 +1,22 @@
+{
+  "name": "kakao-bot",
+  "version": "1.0.0",
+  "description": "a simple kakao bot service using node.js and serverless.js",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sean-ahn/kakao-bot.git"
+  },
+  "author": "sean-ahn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sean-ahn/kakao-bot/issues"
+  },
+  "homepage": "https://github.com/sean-ahn/kakao-bot#readme",
+  "devDependencies": {
+    "serverless-offline": "^3.25.5"
+  }
+}
