@@ -20,10 +20,12 @@ service: kakao-bot
 provider:
   name: aws
   runtime: nodejs6.10
-
-# you can overwrite defaults here
   stage: dev
   region: ap-northeast-2
+  usagePlan:
+      quota:
+        limit: 1000
+        period: MONTH
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:

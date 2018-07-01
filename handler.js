@@ -16,8 +16,9 @@ module.exports.message = (event, context, callback) => {
     const response = {
         statusCode: 200,
         body: JSON.stringify({
-            type: "message",
-            buttons: ["선택 1", "선택 2", "선택 3"],
+            message: {
+                text: `${event.body}`,
+            },
         }),
     };
 
@@ -25,25 +26,17 @@ module.exports.message = (event, context, callback) => {
 };
 
 module.exports.friend = (event, context, callback) => {
-    const response = {
-        statusCode: 200,
-        body: JSON.stringify({
-            type: "friend",
-            buttons: ["선택 1", "선택 2", "선택 3"],
-        }),
-    };
+    // invalid methods are filtered by configuration.
+    if (event.httpMethod === "DELETE")
+        console.log(event.pathParameters.user_key);
+    else
+        console.log(JSON.parse(event.body).user_key);
 
-    callback(null, response);
+    callback(null, {statusCode: 200});
 };
 
 module.exports.chatRoom = (event, context, callback) => {
-    const response = {
-        statusCode: 200,
-        body: JSON.stringify({
-            type: "chatRoom",
-            buttons: ["선택 1", "선택 2", "선택 3"],
-        }),
-    };
-
-    callback(null, response);
+    // invalid methods are filtered by configuration.
+    console.log(event.pathParameters.user_key);
+    callback(null, {statusCode: 200});
 };
