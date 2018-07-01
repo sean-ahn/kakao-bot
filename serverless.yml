@@ -55,27 +55,32 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  hello:
-    handler: handler.hello
-
-#    The following are a few example events you can configure
-#    NOTE: Please make sure to change your handler code to work with those events
-#    Check the event documentation for details
+  keyboard:
+    handler: handler.keyboard
     events:
       - http:
           path: keyboard
           method: get
+  message:
+    handler: handler.message
+    events:
       - http:
           path: message
           method: post
+  friend:
+    handler: handler.friend
+    events:
       - http:
           path: friend
           method: post
       - http:
-          path: friend
+          path: friend/{user_key}
           method: delete
+  chatRoom:
+    handler: handler.chatRoom
+    events:
       - http:
-          path: chat_room/:user_key
+          path: chat_room/{user_key}
           method: delete
 
 #      - s3: ${env:BUCKET}
